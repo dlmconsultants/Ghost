@@ -1,9 +1,10 @@
 # top level version field is required
 version: 2
 
-projectIgnorePaths:
-  - "ignored-folder"
-  - "foo/bar/package.json"
+# Template code. Uncomment and modify as needed.
+#projectIgnorePaths:
+#  - "ignored-folder"
+#  - "foo/bar/package.json"
 
 # only trigger pull request alerts when these files change.
 triggerPaths:
