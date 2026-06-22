@@ -70,6 +70,7 @@ jobs:
       contents: read
       pull-requests: write
     runs-on: ubuntu-latest
+    steps:
       - name: Install Socket CLI v2
         env:
           SOCKET_SECURITY_API_KEY: ${{ secrets.SOCKET_SECURITY_API_KEY }}
