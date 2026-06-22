@@ -71,6 +71,10 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          # For PRs, fetch one additional commit for proper diff analysis
+          fetch-depth: ${{ github.event_name == 'pull_request' && 2 || 0 }}
       - name: Install Socket CLI v2
         env:
           SOCKET_SECURITY_API_KEY: ${{ secrets.SOCKET_SECURITY_API_KEY }}
@@ -97,7 +101,7 @@ jobs:
       - name: Run Socket Basics
         # Pin to a commit SHA for supply-chain safety.
         # Dependabot will keep this up to date automatically — see docs/github-action.md.
-        uses: SocketDev/socket-basics@<sha>  # v2.0.3
+        uses: SocketDev/socket-basics@fe6259f624e25d30fddf87fd7c255545295cab94  # v2.0.3
         env:
           GITHUB_PR_NUMBER: ${{ github.event.pull_request.number || github.event.issue.number }}
         with:
